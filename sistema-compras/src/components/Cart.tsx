@@ -1,13 +1,13 @@
-import type { Product } from '../App';
+import type { ProductType } from '../services/api/types';
 
 interface CartProps {
-  cart: Product[];
-  removeFromCart: (productId: number) => void;
+  cart: ProductType[];
+  removeFromCart: (productId: string) => void;
   clearCart: () => void;
 }
 
 const Cart: React.FC<CartProps> = ({ cart, removeFromCart, clearCart }) => {
-  const total = cart.reduce((sum, item) => sum + item.price, 0);
+  const total = cart.reduce((sum, item) => sum + Number(item.price), 0);
 
   return (
     <div className="mt-8 bg-white p-4 rounded shadow">
@@ -18,18 +18,18 @@ const Cart: React.FC<CartProps> = ({ cart, removeFromCart, clearCart }) => {
         <>
           <ul className="divide-y divide-gray-200">
             {cart.map(item => (
-              <li key={item.id} className="py-2 flex justify-between">
-                <span>{item.name} - R$ {item.price.toFixed(2)}</span>
+              <li key={item.objectId} className="py-2 flex justify-between">
+                <span>{item.name} - R$ {item.price}</span>
                 <button
                   className="text-red-500 hover:text-red-700"
-                  onClick={() => removeFromCart(item.id)}
+                  onClick={() => removeFromCart(item.objectId)}
                 >
                   Remover
                 </button>
               </li>
             ))}
           </ul>
-          <p className="mt-4 font-semibold">Total: R$ {total.toFixed(2)}</p>
+          <p className="mt-4 font-semibold">Total: R$ {total}</p>
           <button
             className="mt-4 bg-green-400 text-white px-4 py-2 rounded hover:bg-green-700 transition"
             onClick={clearCart}
