@@ -54,11 +54,13 @@ Antes de rodar o projeto, certifique-se de ter:
 - **Vite**: Ferramenta de build rápida e moderna.
 - **Tailwind CSS**: Framework CSS para estilização.
 - **LocalStorage**: Persistência de dados no navegador.
+- **Back4app**: Persistência de dados em um banco de dados.
 
 ## Estrutura do Projeto
 
 - **App.tsx**: Componente principal que gerencia o estado do carrinho e produtos.
 - **components/**: Contém os componentes reutilizáveis (ProductList, Cart, ProductModal).
+- **services/api/**: (Contém os método de busca de dados no back4app).
 - **index.css**: Estilos globais com Tailwind CSS.
 - **postcss.config.cjs**: Configuração do PostCSS para Tailwind e Autoprefixer.
 - **tailwind.config.js**: Configuração do Tailwind CSS.
@@ -70,3 +72,5 @@ Durante o desenvolvimento, foram realizados os seguintes ajustes:
 - Adicionada a exportação da interface `Product` em `App.tsx` para corrigir erros de importação nos componentes.
 - Renomeado `postcss.config.js` para `postcss.config.cjs` para compatibilidade com CommonJS, devido ao `"type": "module"` no `package.json`.
 - Corrigida a versão do Tailwind CSS para `3.4.7` no `package.json`.
+
+- Implantação do banco de dados (Back4app)
