@@ -1,4 +1,3 @@
-import type { Product } from '../App';
 import type { ProductType } from '../services/api/types';
 
 interface ProductListProps {
