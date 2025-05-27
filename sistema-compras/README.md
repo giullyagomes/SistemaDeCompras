@@ -1,54 +1,72 @@
-# React + TypeScript + Vite
+# Sistema de Compras Online
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um projeto de uma interface frontend para um sistema de compras online, desenvolvido como parte de uma atividade da Rocket Lab (Viságio). A aplicação permite visualizar produtos, adicionar/remover itens do carrinho, ver detalhes de produtos em um modal, finalizar compras e persistir o carrinho no localStorage. O projeto foi construído com React, TypeScript, Vite e Tailwind CSS, com foco em uma interface responsiva e funcional.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Listagem de Produtos**: Exibe uma grade de produtos com nome, preço e imagem.
+- **Detalhes do Produto**: Modal com descrição detalhada, preço e opção de adicionar ao carrinho.
+- **Carrinho de Compras**: Adiciona/remover itens e calcula o total.
+- **Finalização de Compra**: Limpa o carrinho com uma mensagem de sucesso.
+- **Persistência de Dados**: Salva o carrinho no localStorage para manter os itens ao recarregar a página.
+- **Responsividade**: Interface adaptada para dispositivos móveis e desktop.
 
-## Expanding the ESLint configuration
+## Pré-requisitos
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Antes de rodar o projeto, certifique-se de ter:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- Node.js (versão 20 ou superior recomendada)
+- npm (gerenciador de pacotes)
+- Git (para clonar o repositório)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Instalação
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. Clone o repositório:
+   ```
+   git clone https://github.com/giullyagomes/SistemaDeCompras
+   cd sistema-compras
+   ```
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+2. Instale as dependências:
+   ```
+   npm install
+   ```
+
+3. Inicie o servidor de desenvolvimento:
+   ```
+   npm run dev
+   ```
+
+4. Acesse a aplicação no navegador em `http://localhost:5173`.
+
+## Uso
+
+- **Visualizar Produtos**: Navegue pela lista de produtos na página inicial.
+- **Ver Detalhes**: Clique em "Detalhes" para abrir o modal com informações do produto.
+- **Gerenciar Carrinho**: Adicione itens com o botão "Adicionar" e remova com "Remover" no carrinho.
+- **Finalizar Compra**: Clique em "Finalizar Compra" para limpar o carrinho e exibir uma mensagem de sucesso.
+- **Persistência**: O carrinho é salvo automaticamente no localStorage e restaurado ao recarregar a página.
+
+## Tecnologias Utilizadas
+
+- **React**: Biblioteca para construção da interface.
+- **TypeScript**: Tipagem estática para maior segurança no código.
+- **Vite**: Ferramenta de build rápida e moderna.
+- **Tailwind CSS**: Framework CSS para estilização.
+- **LocalStorage**: Persistência de dados no navegador.
+
+## Estrutura do Projeto
+
+- **App.tsx**: Componente principal que gerencia o estado do carrinho e produtos.
+- **components/**: Contém os componentes reutilizáveis (ProductList, Cart, ProductModal).
+- **index.css**: Estilos globais com Tailwind CSS.
+- **postcss.config.cjs**: Configuração do PostCSS para Tailwind e Autoprefixer.
+- **tailwind.config.js**: Configuração do Tailwind CSS.
+
+## Correções e Ajustes
+
+Durante o desenvolvimento, foram realizados os seguintes ajustes:
+
+- Adicionada a exportação da interface `Product` em `App.tsx` para corrigir erros de importação nos componentes.
+- Renomeado `postcss.config.js` para `postcss.config.cjs` para compatibilidade com CommonJS, devido ao `"type": "module"` no `package.json`.
+- Corrigida a versão do Tailwind CSS para `3.4.7` no `package.json`.
